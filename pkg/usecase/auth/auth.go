@@ -1,12 +1,12 @@
-package registration
+package auth
 
 type AuthService interface {
 }
 
-type Service struct {
+// AuthServiceImpl implements the AuthService interface.
+type AuthServiceImpl struct {
 }
 
-func NewAuthService() *Service {
-	return &Service{}
-
+func NewAuthService() *AuthServiceImpl {
+	return &AuthServiceImpl{}
 }

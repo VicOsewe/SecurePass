@@ -22,6 +22,7 @@ func SetUpRouter() {
 		})
 	})
 
+	apiGroup.POST("/signup")
 	srv := &http.Server{
 		Addr:    ":8080",
 		Handler: router,
