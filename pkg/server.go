@@ -2,6 +2,7 @@ package pkg
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -9,6 +10,8 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/VicOsewe/secure-pass/pkg/config"
+	"github.com/VicOsewe/secure-pass/pkg/infrastructure/databases/postgres"
 	"github.com/gin-gonic/gin"
 )
 
@@ -48,4 +51,12 @@ func SetUpRouter() {
 	}
 
 	log.Println("Server exiting")
+}
+
+// InitHandlers initializes all the handlers dependencies
+func InitializeHandlers() {
+	// ctx := context.Background()
+	env := config.NewEnv()
+	db := postgres.NewSecurePassDB(env)
+	fmt.Println(db)
 }
